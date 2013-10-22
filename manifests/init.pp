@@ -1,13 +1,11 @@
 # Basic shell managment
 class shell {
-  include  dots
-  include zsh
-  include oh_my_zsh
-  include z
-  include ack
-  include rlwrap
-  include tmux
-  include glances
-  # include git_extras
-  # include git_fat
+  include shell::dots
+  include shell::zsh
+  include shell::oh_my_zsh
+  include shell::z
+  include shell::ack
+  include shell::rlwrap
+  include shell::tmux
+  include shell::glances
 }
