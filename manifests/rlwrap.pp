@@ -4,5 +4,5 @@ class shell::rlwrap {
     ensure  => present
   }
 
-  dots::link_dot{'.inputrc':}
+  shell::link_dot{'.inputrc':}
 }

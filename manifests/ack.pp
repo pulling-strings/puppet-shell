@@ -5,7 +5,7 @@ class shell::ack {
     ensure  => present
   }
 
-  dots::link_dot{'.ackrc':}
+  shell::link_dot{'.ackrc':}
 
   file{'/usr/bin/ack':
     ensure  => link,
