@@ -20,4 +20,15 @@ class shell::tmux {
     target  => "${home}/.tmux/.tmux.conf",
     require => Git::Clone['.tmux']
   }
+
+  package{'tmuxinator':
+    ensure   => present,
+    provider => gem
+  } ->
+
+  git::clone {'.tmuxinator':
+    url   => 'git://github.com/narkisr/.tmuxinator.git',
+    dst   => "${home}/.tmuxinator",
+    owner => $username
+  }
 }
