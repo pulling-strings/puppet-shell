@@ -7,5 +7,14 @@ class shell {
   include shell::ack
   include shell::rlwrap
   include shell::tmux
-  include shell::glances
+
+  package{'fasd':
+    ensure  => present,
+    require  => Class['barbecue']
+  }
+
+  package{'nmon':
+    ensure  => present
+  }
+
 }
