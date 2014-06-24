@@ -7,12 +7,12 @@ class shell::tmux {
     ensure  => installed
   }
 
-  $home = "/home/${username}"
+  $home = "/home/${shell::user}"
 
   git::clone {'.tmux':
     url   => 'git://github.com/narkisr/.tmux.git',
     dst   => "${home}/.tmux",
-    owner => $username
+    owner => $shell::user
   }
 
   file {"${home}/.tmux.conf":
@@ -29,6 +29,6 @@ class shell::tmux {
   git::clone {'.tmuxinator':
     url   => 'git://github.com/narkisr/.tmuxinator.git',
     dst   => "${home}/.tmuxinator",
-    owner => $username
+    owner => $shell::user
   }
 }

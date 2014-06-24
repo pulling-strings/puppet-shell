@@ -6,7 +6,7 @@ class shell::zsh {
   }
   
   exec {'default shell':
-   command     => "chsh -s /bin/zsh $username", 
+   command     => "chsh -s /bin/zsh ${shell::user}", 
    path        => ['/usr/bin/','/bin/'],
    require     => Package["zsh"],
    user        => root, 

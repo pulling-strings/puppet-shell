@@ -1,5 +1,9 @@
 # Basic shell managment
-class shell {
+class shell($user=false, $home=false) {
+
+  validate_string($user)
+  validate_string($home)
+
   include shell::dots
   include shell::zsh
   include shell::oh_my_zsh
@@ -8,9 +12,11 @@ class shell {
   include shell::rlwrap
   include shell::tmux
 
-  package{'fasd':
-    ensure  => present,
-    require  => Class['barbecue']
+  if(defined(Class['barbecue'])){
+    package{'fasd':
+      ensure   => present,
+      require  => Class['barbecue']
+    }
   }
 
   package{'nmon':
