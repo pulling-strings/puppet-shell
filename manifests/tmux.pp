@@ -7,17 +7,15 @@ class shell::tmux {
     ensure  => installed
   }
 
-  $home = "/home/${username}"
-
   git::clone {'.tmux':
     url   => 'git://github.com/narkisr/.tmux.git',
-    dst   => "${home}/.tmux",
-    owner => $username
+    dst   => "${shell::home}/.tmux",
+    owner => $shell::user
   }
 
-  file {"${home}/.tmux.conf":
+  file {"${shell::home}/.tmux.conf":
     ensure  => link,
-    target  => "${home}/.tmux/.tmux.conf",
+    target  => "${shell::home}/.tmux/.tmux.conf",
     require => Git::Clone['.tmux']
   }
 
@@ -28,7 +26,7 @@ class shell::tmux {
 
   git::clone {'.tmuxinator':
     url   => 'git://github.com/narkisr/.tmuxinator.git',
-    dst   => "${home}/.tmuxinator",
-    owner => $username
+    dst   => "${shell::home}/.tmuxinator",
+    owner => $shell::user
   }
 }

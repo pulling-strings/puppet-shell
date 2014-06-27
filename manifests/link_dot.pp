@@ -2,7 +2,7 @@
 define shell::link_dot() {
   include shell::dots
 
-  file{"${home}/${name}":
+  file{"${shell::home}/${name}":
     ensure  => link,
     target  => "${shell::dots::dots_home}/${name}",
     require => Git::Clone[$shell::dots::dots_home]
