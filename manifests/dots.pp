@@ -8,7 +8,7 @@ class shell::dots {
   git::clone { $dots_home:
     url   => $dots_repo,
     dst   => $dots_home,
-    owner => $username
+    owner => $shell::user
   }
 
 }

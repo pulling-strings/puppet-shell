@@ -3,23 +3,23 @@ class shell::oh_my_zsh {
 
   include git
 
-  $home = "/home/${username}"
-
   git::clone {'oh-my-zsh':
     url   => 'git://github.com/narkisr/oh-my-zsh.git',
-    dst   => "${home}/.oh-my-zsh",
-    owner => $username
+    dst   => "${shell::home}/.oh-my-zsh",
+    owner => $shell::user,
   }
 
-  file { "${home}/.zshrc":
+  file { "${shell::home}/.zshrc":
     ensure => link,
-    target => "${home}/.oh-my-zsh/.zshrc",
+    target => "${shell::home}/.oh-my-zsh/.zshrc",
+    owner => $shell::user,
+    group => $shell::user,
     require  => Exec['clone oh-my-zsh']
   }
 
-  file { "${home}/.oh-my-zsh":
-    group    => $username,
-    owner    => $username,
+  file { "${shell::home}/.oh-my-zsh":
+    group    => $shell::user,
+    owner    => $shell::user,
     mode     => '0644',
     require  => Exec['clone oh-my-zsh']
   }
