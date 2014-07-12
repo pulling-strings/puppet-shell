@@ -11,6 +11,7 @@ class shell($user=false, $home=false) {
   include shell::ack
   include shell::rlwrap
   include shell::tmux
+  include shell::peco
 
   if(defined(Class['barbecue'])){
     package{'fasd':
