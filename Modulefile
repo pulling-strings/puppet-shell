@@ -8,4 +8,4 @@ description 'This module manages different shell settings/packages/setup configu
 project_page 'https://github.com/narkisr/puppet-shell'
 
 ## Add dependencies, if any:
-# dependency 'username/name', '>= 1.2.0'
+dependency 'stankevich-python', '>= 1.7.8'
