@@ -2,7 +2,7 @@
 class shell::params {
   case $::osfamily {
     'Debian': {
-      $zsh_bin= '/usr/bin/zsh'
+      $zsh_bin= '/bin/zsh'
       $ack_pkg= 'ack-grep'
     }
     'FreeBSD': {
