@@ -1,27 +1,19 @@
 # Basic shell managment
 class shell($user=false, $home=false) {
 
+  include shell::params
   validate_string($user)
   validate_string($home)
 
-  include shell::dots
-  include shell::zsh
-  include shell::oh_my_zsh
-  include shell::z
-  include shell::ack
-  include shell::rlwrap
-  include shell::tmux
-  include shell::peco
-
-  if(defined(Class['barbecue'])){
-    package{'fasd':
-      ensure   => present,
-      require  => Class['barbecue']
+  case $::osfamily {
+    'Debian': {
+      include shell::debian
+    }
+    'Freebsd': {
+      include shell::freebsd
+    }
+    default: {
+      fail("Module ${module_name} is not supported on ${::osfamily}")
     }
   }
-
-  package{'nmon':
-    ensure  => present
-  }
-
 }

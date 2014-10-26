@@ -3,14 +3,13 @@ class shell::zsh {
 
   package {'zsh':
     ensure => installed
-  }
+  } ~>
   
   exec {'default shell':
-   command     => "chsh -s /bin/zsh ${shell::user}", 
+   command     => "chsh -s ${shell::params::zsh_bin} ${shell::user}", 
    path        => ['/usr/bin/','/bin/'],
-   require     => Package["zsh"],
+   require     => Package['zsh'],
    user        => root, 
    refreshonly => true,
-   subscribe   =>  Package['zsh']
   }
 }

@@ -1,15 +1,17 @@
 # Setting up ack-grep
 class shell::ack {
 
-  package{'ack-grep':
+  package{$shell::params::ack_pkg:
     ensure  => present
   }
 
   shell::link_dot{'.ackrc':}
 
-  file{'/usr/bin/ack':
-    ensure  => link,
-    target  => '/usr/bin/ack-grep',
-    require => Package['ack-grep']
+  if($::osfamily == 'Debian'){
+    file{'/usr/bin/ack':
+      ensure  => link,
+      target  => '/usr/bin/ack-grep',
+      require => Package['ack-grep']
+    }
   }
 }
