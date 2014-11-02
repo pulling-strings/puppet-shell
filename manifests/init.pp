@@ -2,6 +2,7 @@
 class shell($user=false, $home=false) {
 
   include shell::params
+  include git
   validate_string($user)
   validate_string($home)
 

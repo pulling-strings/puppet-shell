@@ -1,6 +1,5 @@
 # dots setup
 class shell::dots {
-
   $dots_home = "${shell::home}/.dots"
 
   $dots_repo = 'git://github.com/narkisr/dots.git'
