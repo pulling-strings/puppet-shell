@@ -7,7 +7,7 @@ class shell::debian {
   include shell::ack
   include shell::rlwrap
   include shell::tmux
-  include shell::peco
+  include shell::transcrypt
 
   if(defined(Class['barbecue'])){
     package{'fasd':
