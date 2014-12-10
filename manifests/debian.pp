@@ -8,6 +8,7 @@ class shell::debian {
   include shell::rlwrap
   include shell::tmux
   include shell::transcrypt
+  include shell::icdiff
 
   if(defined(Class['barbecue'])){
     package{'fasd':
