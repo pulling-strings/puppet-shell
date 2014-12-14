@@ -6,10 +6,10 @@ class shell::zsh {
   } ~>
   
   exec {'default shell':
-   command     => "chsh -s ${shell::params::zsh_bin} ${shell::user}", 
-   path        => ['/usr/bin/','/bin/'],
-   require     => Package['zsh'],
-   user        => root, 
-   refreshonly => true,
+   command => "chsh -s ${shell::params::zsh_bin} ${shell::user}", 
+   path    => ['/usr/bin/','/bin/'],
+   require => Package['zsh'],
+   user    => root,
+   unless  => 'cat /etc/passwd | grep vagrant | grep zsh'
   }
 }

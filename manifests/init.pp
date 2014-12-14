@@ -10,7 +10,7 @@ class shell($user=false, $home=false) {
     'Debian': {
       include shell::debian
     }
-    'Freebsd': {
+    'FreeBSD': {
       include shell::freebsd
     }
     default: {
