@@ -10,6 +10,6 @@ class shell::zsh {
    path    => ['/usr/bin/','/bin/'],
    require => Package['zsh'],
    user    => root,
-   unless  => 'cat /etc/passwd | grep vagrant | grep zsh'
+   unless  => "cat /etc/passwd | grep ${shell::user} | grep zsh"
   }
 }
