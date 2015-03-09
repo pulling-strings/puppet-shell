@@ -1,9 +1,11 @@
 # Setting up https://github.com/junegunn/fzf
 class shell::fzf {
+  validate_string($::shell::home)
   git::clone {'fzf':
-    url   => 'https://github.com/junegunn/fzf.git',
-    dst   => "${shell::home}/.fzf",
-    owner => $shell::user
+    url    => 'https://github.com/junegunn/fzf.git',
+    dst    => "${::shell::home}/.fzf",
+    owner  => $shell::user,
+    unless => "test -d ${::shell::home}/.fzf"
   } ->
   
   exec{'install fzf':
