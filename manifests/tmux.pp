@@ -24,9 +24,9 @@ class shell::tmux {
     owner => $shell::user
   } ->
 
-  file {"${shell::home}/.tmux.conf.plugins":
+  file {"${shell::home}/.tmux.conf":
     ensure  => link,
-    target  => "${shell::home}/.tmux/.tmux.conf",
+    target  => "${shell::home}/.tmux/.tmux.conf.plugins",
     require => Git::Clone['.tmux']
   }
 
