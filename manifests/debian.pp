@@ -7,7 +7,6 @@ class shell::debian {
   include shell::ack
   include shell::rlwrap
   include shell::tmux
-  include shell::transcrypt
   include shell::icdiff
   include shell::fzf
 
