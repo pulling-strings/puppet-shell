@@ -6,5 +6,4 @@ class shell::ack {
   }
 
   shell::link_dot{'.ackrc':}
- 
 }
