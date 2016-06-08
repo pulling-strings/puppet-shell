@@ -5,5 +5,6 @@ class shell::freebsd {
   include shell::tmux
   include shell::ack
   include shell::z
+  include shell::rlwrap
   include shell::dots
 }
