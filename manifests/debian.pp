@@ -8,12 +8,11 @@ class shell::debian {
   include shell::rlwrap
   include shell::tmux
   include shell::icdiff
-  include shell::fzf
 
   if(defined(Class['barbecue'])){
     package{'fasd':
-      ensure   => present,
-      require  => Class['barbecue']
+      ensure  => present,
+      require => Class['barbecue']
     }
   }
 
