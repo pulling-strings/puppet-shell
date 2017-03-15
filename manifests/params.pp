@@ -8,7 +8,7 @@ class shell::params {
     }
     'FreeBSD': {
       $zsh_bin = '/usr/local/bin/zsh'
-      $ack_pkg = 'ack'
+      $ack_pkg = 'p5-ack'
       $opt_path= '/usr/local/opt'
     }
     default: {
