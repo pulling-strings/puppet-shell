@@ -1,14 +1,12 @@
 # Basic shell managment
 class shell(
   $user=false,
-  $home=false,
-  $include = true
+  String $home='',
+  String $include=''
 ) {
 
   include shell::params
   include git
-  validate_string($user)
-  validate_string($home)
 
   if $include {
     case $::osfamily {
