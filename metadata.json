@@ -1,0 +1,37 @@
+{
+  "name": "puppet-shell",
+  "version": "0.2.0",
+  "author": "Ronen Narkis",
+  "summary": "This module sets up a ZSH based shell and other useful utilities.",
+  "license": "Apache-2.0",
+  "source": "https://github.com/pulling-strings/puppet-shell",
+  "project_page": "https://github.com/pulling-strings/puppet-shell",
+  "issues_url": "https://github.com/pulling-strings/puppet-shell",
+  "dependencies": [
+    {
+      "name": "stankevich/python",
+      "version_requirement": ">= 1.7.8"
+    }
+  ],
+  "data_provider": null,
+  "operatingsystem_support": [
+    {
+      "operatingsystem": "Ubuntu",
+      "operatingsystemrelease": [
+        "16.04"
+      ]
+    },
+    {
+      "operatingsystem": "Debian",
+      "operatingsystemrelease": [
+        "9.0"
+      ]
+    }
+  ],
+  "requirements": [
+    {
+      "name": "puppet",
+      "version_requirement": ">= 4.0.0"
+    }
+  ]
+}
